@@ -21,11 +21,11 @@ jobs:
     - name: Terraform Init
       run: terraform init
       env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIAL }}
         
     - name: Terraform Plan
       run: terraform plan
       env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIAL }}
         
         
