@@ -4,3 +4,7 @@ resource "google_service_account" "service_account" {
   project      = "striped-reserve-419818"
 }
 # comment
+resource "google_compute_network" "custom-test" {
+  name                    = "test-network"
+  auto_create_subnetworks = false
+}
