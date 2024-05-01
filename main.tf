@@ -21,6 +21,6 @@ resource "google_storage_bucket" "static" {
  name          = "fe-may-1-2024-bucket"
  location      = "US"
  storage_class = "STANDARD"
-
+ project      = "striped-reserve-419818"
  uniform_bucket_level_access = true
 }
