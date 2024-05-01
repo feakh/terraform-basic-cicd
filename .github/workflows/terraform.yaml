@@ -28,4 +28,7 @@ jobs:
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIAL }}
         
-        
+    - name: Terraform Apply       
+      run: terraform apply -auto-approve       
+      env:         
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIAL }}
