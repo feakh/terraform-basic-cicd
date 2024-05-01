@@ -16,3 +16,11 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
   project      = "striped-reserve-419818"
   network       = google_compute_network.custom-test.id#returns the id of vpc created in line 7
 }
+
+resource "google_storage_bucket" "static" {
+ name          = "fe-may-1-2024-bucket"
+ location      = "US"
+ storage_class = "STANDARD"
+
+ uniform_bucket_level_access = true
+}
