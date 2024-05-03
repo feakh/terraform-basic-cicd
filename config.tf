@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "devopscoolgirkbk"
-    prefix  = "fechukwu"
+    bucket = "devopscoolgirkbk"
+    prefix = "fechukwu"
   }
 }
