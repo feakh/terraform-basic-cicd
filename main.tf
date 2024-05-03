@@ -1,6 +1,6 @@
 resource "google_service_account" "service_account" {
   account_id   = "service-account-id"
-  display_name = "devopscoolgirl"
+  display_name = var.env
   project      = var.project_id
 }
 # comment
