@@ -10,10 +10,9 @@ resource "google_compute_network" "custom-test" {
   project                 = var.project_id
 }
 resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" {
-  name          = "test-subnetwork"
+  name          = var.env
   ip_cidr_range = "10.2.0.0/16"
   region        = "us-central1"
-  display_name  = var.env
   project       = var.project_id
   network       = google_compute_network.custom-test.id #returns the id of vpc created in line 7
 }
