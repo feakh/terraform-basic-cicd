@@ -5,8 +5,7 @@ resource "google_service_account" "service_account" {
 }
 # comment
 resource "google_compute_network" "custom-test" {
-  name                    = "test-network"
-  display_name            = var.env
+  name                    = var.env
   auto_create_subnetworks = false
   project                 = var.project_id
 }
