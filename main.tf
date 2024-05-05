@@ -18,7 +18,7 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
 }
 
 resource "google_storage_bucket" "static" {
-  name                        = "fe-may-1-2024-bucket"
+  name                        = var.env
   location                    = "US"
   storage_class               = "STANDARD"
   project                     = var.project_id
