@@ -8,3 +8,8 @@ variable "env" {
     description = "name of the environment"
 
 }
+
+variable "region" {
+    type = string
+    description = "name of region"
+}
