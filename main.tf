@@ -18,7 +18,15 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
 }
 
 resource "google_storage_bucket" "static" {
-  name                        = "${var.env}-fe-ma4-2024"
+  name                        = "${var.env}-fe-ma4-2024-1"
+  location                    = "US"
+  storage_class               = "STANDARD"
+  project                     = var.project_id
+  uniform_bucket_level_access = true
+}
+
+resource "google_storage_bucket" "static" {
+  name                        = "${var.env}-fe-ma4-2024-2"
   location                    = "US"
   storage_class               = "STANDARD"
   project                     = var.project_id
