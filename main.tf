@@ -25,7 +25,7 @@ resource "google_storage_bucket" "static" {
   uniform_bucket_level_access = true
 }
 
-resource "google_storage_bucket" "static" {
+resource "google_storage_bucket" "static loop" {
   name                        = "${var.env}-fe-ma4-2024-2"
   location                    = "US"
   storage_class               = "STANDARD"
