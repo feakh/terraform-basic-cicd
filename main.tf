@@ -18,7 +18,8 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
 }
 
 resource "google_storage_bucket" "static" {
-  name                        = "${var.env}-fe-ma4-2024-1"
+  count                       = 2
+  name                        = "${var.env}-fe-ma4-2024"
   location                    = "US"
   storage_class               = "STANDARD"
   project                     = var.project_id
@@ -26,10 +27,10 @@ resource "google_storage_bucket" "static" {
 }
 
 # resource "google_storage_bucket" "static_loop" {
-  # name                        = "${var.env}-fe-ma4-2024-2"
-  # location                    = "US"
-  # storage_class               = "STANDARD"
- # project                     = var.project_id
- # uniform_bucket_level_access = true
+# name                        = "${var.env}-fe-ma4-2024-2"
+# location                    = "US"
+# storage_class               = "STANDARD"
+# project                     = var.project_id
+# uniform_bucket_level_access = true
 # }
 # terraform deployment of vpc and buckets
