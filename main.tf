@@ -19,7 +19,7 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
 
 resource "google_storage_bucket" "static" {
   count                       = 2
-  name                        = "${var.env}-fe-ma4-2025-${count.index}"
+  name                        = "${var.env}-fe-ma4-2025-${count.index + 1}"
   location                    = "US"
   storage_class               = "STANDARD"
   project                     = var.project_id
