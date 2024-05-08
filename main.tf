@@ -19,7 +19,7 @@
 
 resource "google_storage_bucket" "static" {
   for_each                    = toset(var.bucket_names)
-  name                        = "${var.env}-fe-ma4-2025-${each.key}"
+  name                        = "${each.key}"
   location                    = "US"
   storage_class               = "STANDARD"
   project                     = var.project_id
