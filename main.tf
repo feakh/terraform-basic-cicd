@@ -20,7 +20,7 @@
 resource "google_storage_bucket" "static" {
   for_each                    = toset(var.bucket_names)
   name                        = each.key
-  location                    = "US"
+  location                    = each.key
   storage_class               = "STANDARD"
   project                     = var.project_id
   uniform_bucket_level_access = true

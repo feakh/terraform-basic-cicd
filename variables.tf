@@ -18,3 +18,8 @@ variable "bucket_names" {
   type        = list(string)
   description = "names of the buckets to be created"
 }
+
+variable "location" {
+  type        = list(string)
+  description = "names of locations"
+}
