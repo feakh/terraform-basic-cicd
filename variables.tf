@@ -13,3 +13,8 @@ variable "region" {
   type        = string
   description = "name of region"
 }
+
+variable "bucket_names" {
+  type        = list(string)
+  description = "names of the buckets to be created"
+}
