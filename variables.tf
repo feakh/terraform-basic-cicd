@@ -23,3 +23,8 @@ variable "location" {
   type        = list(string)
   description = "names of locations"
 }
+
+variable "bucket_map" {
+  type        = map(string)
+  description = "map name = location"
+}

@@ -26,6 +26,15 @@ resource "google_storage_bucket" "static" {
   uniform_bucket_level_access = true
 }
 
+resource "google_storage_bucket" "stable" {
+  for_each                    = var.bucket_map
+  name                        = each.key
+  location                    = each.value
+  storage_class               = "STANDARD"
+  project                     = var.project_id
+  uniform_bucket_level_access = true
+}
+
 # resource "google_storage_bucket" "static_loop" {
 # name                        = "${var.env}-fe-ma4-2024-2"
 # location                    = "US"
