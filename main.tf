@@ -17,23 +17,23 @@
 #  network       = google_compute_network.custom-test.id #returns the id of vpc created in line 7
 #}
 
-resource "google_storage_bucket" "static" {
-  for_each                    = toset(var.bucket_names)
-  name                        = each.key
-  location                    = each.key == "ta-mya8-2024-prd" ? "EU" : "US"
-  storage_class               = "STANDARD"
-  project                     = var.project_id
-  uniform_bucket_level_access = true
-}
+# resource "google_storage_bucket" "static" {
+# for_each                    = toset(var.bucket_names)
+#  name                        = each.key
+#  location                    = each.key == "ta-mya8-2024-prd" ? "EU" : "US"
+#  storage_class               = "STANDARD"
+#  project                     = var.project_id
+#  uniform_bucket_level_access = true
+#}
 
-resource "google_storage_bucket" "stable" {
-  for_each                    = var.bucket_map
-  name                        = each.key
-  location                    = each.value
-  storage_class               = "STANDARD"
-  project                     = var.project_id
-  uniform_bucket_level_access = true
-}
+# resource "google_storage_bucket" "stable" {
+#  for_each                    = var.bucket_map
+#  name                        = each.key
+#  location                    = each.value
+#  storage_class               = "STANDARD"
+#  project                     = var.project_id
+#  uniform_bucket_level_access = true
+# }
 
 # resource "google_storage_bucket" "static_loop" {
 # name                        = "${var.env}-fe-ma4-2024-2"
