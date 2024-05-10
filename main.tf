@@ -17,6 +17,12 @@
 #  network       = google_compute_network.custom-test.id #returns the id of vpc created in line 7
 #}
 
+resource "google_compute_network" "custom-test" {
+  name                    = var.env
+  auto_create_subnetworks = false
+  project                 = var.project_id
+}
+
 # resource "google_storage_bucket" "static" {
 # for_each                    = toset(var.bucket_names)
 #  name                        = each.key
