@@ -23,6 +23,15 @@ resource "google_compute_network" "custom-test" {
   project                 = var.project_id
 }
 
+resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" {
+  for_each      = var.subnetwork_map
+  name          = each.key
+  ip_cidr_range = each.value
+  region        = var.region
+  project       = var.project_id
+  network       = google_compute_network.custom-test.id #returns the id of vpc created in line 7
+}
+
 # resource "google_storage_bucket" "static" {
 # for_each                    = toset(var.bucket_names)
 #  name                        = each.key

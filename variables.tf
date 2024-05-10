@@ -28,3 +28,8 @@ variable "bucket_map" {
   type        = map(string)
   description = "map name = location"
 }
+
+variable "subnetwork_map" {
+  type        = map(string)
+  description = "map name = ip_cidr_range"
+}

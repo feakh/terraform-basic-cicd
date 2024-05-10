@@ -7,3 +7,11 @@ bucket_map = {
   may9-2024-fe-ma-test = "US"
   fe-pa-may9-2024-test = "EU"
 }
+
+subnetwork_map = {
+# name = cidr_range
+# key = "value"
+  subnet1 = "10.20.30.0/24"
+  subnet2 = "10.20.33.0/24"
+  subnet3 = "10.20.36.0/24"
+}
