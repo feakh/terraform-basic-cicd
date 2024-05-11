@@ -76,12 +76,13 @@ resource "google_storage_bucket_object" "default" {
 # }
 # terraform deployment of vpc and buckets
 
-provider "google" {
-  project = var.project_id
-  region  = var.region
-}
+# provider "google" {
+#  project = var.project_id
+#  region  = var.region
+# }
 
 resource "google_compute_instance" "my-devops-instance" {
+  project = var.project_id
   boot_disk {
     auto_delete = true
     device_name = "my-devops-instance"
