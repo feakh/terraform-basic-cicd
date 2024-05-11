@@ -64,7 +64,6 @@ resource "google_storage_bucket_object" "default" {
  name         = "startup_file.txt"
  source       = "startup.sh"
  content_type = "text/plain"
- project      = var.project_id
  bucket       = google_storage_bucket.static.id
 }
 
