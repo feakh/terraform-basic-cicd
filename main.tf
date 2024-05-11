@@ -77,7 +77,7 @@ resource "google_storage_bucket_object" "default" {
 # terraform deployment of vpc and buckets
 
 
-resource "google_compute_instance" "vm_instance_public_private" {
+resource "google_compute_instance" "my-devops-instance" {
   boot_disk {
     auto_delete = true
     device_name = "my-devops-instance"
