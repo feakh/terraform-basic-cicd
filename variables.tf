@@ -14,10 +14,10 @@ variable "region" {
   description = "name of region"
 }
 
-# variable "zone" {
-#  type        = string
-#  description = "name of zone"
-# }
+variable "zone" {
+  type        = string
+  description = "name of zone"
+}
 
 # variable "bucket_objects" {
 #  type        = list(string)

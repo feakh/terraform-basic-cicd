@@ -76,6 +76,11 @@ resource "google_storage_bucket_object" "default" {
 # }
 # terraform deployment of vpc and buckets
 
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  zone  = var.zone
+}
 
 resource "google_compute_instance" "my-devops-instance" {
   boot_disk {
