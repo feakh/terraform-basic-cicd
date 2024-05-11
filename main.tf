@@ -139,4 +139,3 @@ resource "google_compute_instance" "my-devops-instance" {
 
     #  zone = "us-central1-a"
   }
-}
