@@ -85,7 +85,7 @@ resource "google_compute_instance" "my-devops-instance" {
   project = var.project_id
   boot_disk {
     auto_delete = true
-    device_name = "my-devops-instance"
+#    device_name = "my-devops-instance"
 
 
     initialize_params {
