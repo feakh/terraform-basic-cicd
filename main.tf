@@ -50,6 +50,24 @@ resource "google_compute_subnetwork" "network-with-private-secondary-ip-ranges" 
 #  uniform_bucket_level_access = true
 # }
 
+resource "google_storage_bucket" "static" {
+  name                        = "${var.env}-may11-2024-fe"
+  location                    = "US"
+  storage_class               = "STANDARD"
+  project                     = var.project_id
+  uniform_bucket_level_access = true
+}
+
+# Upload a text file as an object
+# to the storage bucket
+resource "google_storage_bucket_object" "default" {
+ name         = "startup_file.txt"
+ source       = "startup.sh"
+ content_type = "text/plain"
+ project      = var.project_id
+ bucket       = google_storage_bucket.static.id
+}
+
 # resource "google_storage_bucket" "static_loop" {
 # name                        = "${var.env}-fe-ma4-2024-2"
 # location                    = "US"

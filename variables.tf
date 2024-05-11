@@ -14,6 +14,11 @@ variable "region" {
   description = "name of region"
 }
 
+variable "bucket_object" {
+  type        = list(string)
+  description = "objects inside the buckets to be created"
+}
+
 variable "bucket_names" {
   type        = list(string)
   description = "names of the buckets to be created"
