@@ -79,7 +79,6 @@ resource "google_storage_bucket_object" "default" {
 provider "google" {
   project = var.project_id
   region  = var.region
-  zone  = var.zone
 }
 
 resource "google_compute_instance" "my-devops-instance" {
