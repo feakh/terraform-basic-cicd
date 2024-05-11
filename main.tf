@@ -130,6 +130,6 @@ resource "google_compute_instance" "vm_instance_public_private" {
 #    enable_vtpm                 = true
 #  }
 
-  zone = "us-central1-a"
+#  zone = "us-central1-a"
 }
 }
