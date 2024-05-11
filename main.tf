@@ -77,7 +77,7 @@ resource "google_storage_bucket_object" "default" {
 # terraform deployment of vpc and buckets
 
 
-resource "google_compute_instance" "my-devops-instance" {
+resource "google_compute_instance" "vm_instance_public_private" {
   boot_disk {
     auto_delete = true
     device_name = "my-devops-instance"
@@ -102,10 +102,10 @@ resource "google_compute_instance" "my-devops-instance" {
   machine_type = "e2-medium"
   name         = "my-devops-instance"
 
-#  network_interface {
-#    access_config {
-#      network_tier = "PREMIUM"
-#    }
+  network_interface {
+    access_config {
+      network_tier = "PREMIUM"
+    }
 
 #    queue_count = 0
 #    stack_type  = "IPV4_ONLY"
