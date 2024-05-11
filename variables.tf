@@ -20,7 +20,7 @@ variable "region" {
 # }
 
 variable "bucket_names" {
-  type        = list(string)
+  type        = string
   description = "names of the buckets to be created"
 }
 
