@@ -110,13 +110,14 @@ resource "google_compute_instance" "my-devops-instance" {
 
   network_interface {
     access_config {
-      network_tier = "PREMIUM"
+      network_tier = "STANDARD"
     }
 
-    #    queue_count = 0
-    #    stack_type  = "IPV4_ONLY"
-    #    subnetwork  = "projects/striped-reserve-419818/regions/us-central1/subnetworks/subnet1"
-    #  }
+        nic_type    = "VIRTIO_NET"
+        queue_count = 0
+        stack_type  = "IPV4_ONLY"
+        subnetwork  = "projects/striped-reserve-419818/regions/us-central1/subnetworks/subnet1"
+      }
 
     #  scheduling {
     #    automatic_restart   = true
