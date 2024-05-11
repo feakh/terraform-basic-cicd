@@ -109,4 +109,10 @@ resource "google_compute_instance" "my-devops-instance" {
 
   allow_stopping_for_update = true
 
+resource "google_service_account" "service_account" {
+  account_id   = "service-account-id"
+  display_name = var.env
+  project      = var.project_id
+}
+
 }
