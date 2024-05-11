@@ -77,21 +77,21 @@ resource "google_storage_bucket_object" "default" {
 # terraform deployment of vpc and buckets
 
 
-resource "google_compute_instance" "default" {
-  name         = "my-devops-instance"
-  machine_type = "e2-medium"
-  zone         = "us-central1-a"
+# resource "google_compute_instance" "default" {
+#  name         = "my-devops-instance"
+#  machine_type = "e2-medium"
+#  zone         = "us-central1-a"
 
-  tags = ["ssh", "https"]
+#  tags = ["ssh", "https"]
 
-  boot_disk {
-    initialize_params {
-      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240508"
-      size  = 10
-      type  = "pd-balanced"
-      }
-      labels = {
-        my_label = "value"
-      }  
-}
-}
+#  boot_disk {
+#    initialize_params {
+#      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240508"
+#      size  = 10
+#      type  = "pd-balanced"
+#      }
+#      labels = {
+#        my_label = "value"
+#      }  
+# }
+# }
