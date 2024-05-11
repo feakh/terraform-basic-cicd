@@ -110,7 +110,7 @@ resource "google_compute_instance" "my-devops-instance" {
   allow_stopping_for_update = true
 
 service_account {
-  email   = "service-account-id@striped-reserve-419818.iam.gserviceaccount.com"
+  email   = google_service_account.service_account.email #"service-account-id@striped-reserve-419818.iam.gserviceaccount.com"
   scopes = ["https://www.googleapis.com/auth/cloud-platform"]
 }
 
