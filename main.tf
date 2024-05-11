@@ -94,7 +94,7 @@ resource "google_compute_instance" "my-devops-instance" {
       type  = "pd-balanced"
     }
 
-    mode = "READ_WRITE"
+#    mode = "READ_WRITE"
   }
 
   #  can_ip_forward      = false
@@ -105,7 +105,7 @@ resource "google_compute_instance" "my-devops-instance" {
   #    goog-ec-src = "vm_add-tf"
   #  }
 
-  machine_type = "e2-medium"
+  machine_type = "e2-micro"
   name         = "my-devops-instance"
   zone         = "us-central1-a"
 
