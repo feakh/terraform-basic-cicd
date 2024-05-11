@@ -82,8 +82,6 @@ resource "google_compute_instance" "vm_instance_public_private" {
     auto_delete = true
     device_name = "my-devops-instance"
     
-    zone        = var.zone
-    project     = var.project_id
 
     initialize_params {
       image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240508"
