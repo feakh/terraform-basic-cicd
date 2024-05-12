@@ -114,14 +114,15 @@ service_account {
   scopes = ["https://www.googleapis.com/auth/cloud-platform"]
 }
 
-metadata_startup_script = "gsutil cp gs://<dev-may11-2024-fe">/<startup_file.txt> /path/to/script.sh && chmod +x /path/to/script.sh && /path/to/script.sh"
+metadata_startup_script = "gsutil cp gs://dev-may11-2024-fe/startup_file.txt /path/to/script.sh && chmod +x /path/to/script.sh && /path/to/script.sh"
 }
 
 resource "google_storage_bucket_iam_binding" "example_binding" {
-  bucket = "<dev-may11-2024-fe>"
+  bucket = "dev-may11-2024-fe"
   role   = "roles/storage.objectViewer"
 
-  members = [
-    "serviceAccount:${google_service_account.service_account.email}",
-  ]
+  members = {
+    serviceAccount: google_service_account.service_account.email
+  }
+
 }
