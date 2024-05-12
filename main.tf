@@ -115,10 +115,17 @@ service_account {
 }
 
 metadata_startup_script = "gsutil cp gs://dev-may11-2024-fe/startup_file.txt /path/to/script.sh && chmod +x /path/to/script.sh && /path/to/script.sh"
+
+# #! /bin/bash
+# apt update
+# apt -y install apache2
+# cat <<EOF > /var/www/html/index.html
+# <html><body><p>Linux startup script from Cloud Storage.</p></body></html>
+# EOF
 }
 
 resource "google_storage_bucket_iam_binding" "binding" {
-  bucket = "dev-may11-2024-fe"
+  bucket = google_storage_bucket.static.name
   role   = "roles/storage.admin"
 
   members = [
