@@ -117,11 +117,11 @@ service_account {
 metadata_startup_script = "gsutil cp gs://dev-may11-2024-fe/startup_file.txt /path/to/script.sh && chmod +x /path/to/script.sh && /path/to/script.sh"
 }
 
-resource "google_storage_bucket_iam_binding" "example_binding" {
+resource "google_storage_bucket_iam_binding" "binding" {
   bucket = "dev-may11-2024-fe"
-  role   = "roles/storage.objectViewer"
+  role   = "roles/storage.admin"
 
-  members = {
-    serviceAccount: google_service_account.service_account.email
-  }
+  members = [
+    user: google_service_account.service_account.email
+  ]
 }
