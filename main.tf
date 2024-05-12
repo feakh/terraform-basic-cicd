@@ -115,6 +115,7 @@ service_account {
 }
 
    metadata_startup_script_url = https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt
+   
 
 # metadata_startup_script = "gsutil cp gs://dev-may11-2024-fe/startup_file.txt /path/to/script.sh && chmod +x /path/to/script.sh && /path/to/script.sh"
 
