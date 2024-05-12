@@ -122,6 +122,6 @@ resource "google_storage_bucket_iam_binding" "binding" {
   role   = "roles/storage.admin"
 
   members = [
-    user: google_service_account.service_account.email
+    "user: google_service_account.service_account.email",
   ]
 }
