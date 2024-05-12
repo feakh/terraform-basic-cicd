@@ -134,3 +134,4 @@ resource "google_storage_bucket_iam_binding" "binding" {
     "serviceAccount:${google_service_account.service_account.email}"
   ]
 }
+}
