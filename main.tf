@@ -118,7 +118,7 @@ metadata_startup_script = "gsutil cp gs://<dev-may11-2024-fe">/<startup_file.txt
 }
 
 resource "google_storage_bucket_iam_binding" "example_binding" {
-  bucket = "<dev-may11-2024-fe">"
+  bucket = "<dev-may11-2024-fe>"
   role   = "roles/storage.objectViewer"
 
   members = [
