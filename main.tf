@@ -104,18 +104,18 @@ resource "google_compute_instance" "my-devops-instance" {
       network_tier = "PREMIUM"
     }
 
-    subnetwork  = "projects/striped-reserve-419818/regions/us-central1/subnetworks/subnet1"
+    subnetwork = "projects/striped-reserve-419818/regions/us-central1/subnetworks/subnet1"
   }
 
   allow_stopping_for_update = true
 
-service_account {
-  email   = google_service_account.service_account.email #"service-account-id@striped-reserve-419818.iam.gserviceaccount.com"
-  scopes = ["https://www.googleapis.com/auth/cloud-platform"]
+  service_account {
+    email  = google_service_account.service_account.email #"service-account-id@striped-reserve-419818.iam.gserviceaccount.com"
+    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
+  }
+
+  metadata_startup_script_url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
 }
-
-   metadata_startup_script_url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
-
 
 # metadata_startup_script = "gsutil cp gs://dev-may11-2024-fe/startup_file.txt /path/to/script.sh && chmod +x /path/to/script.sh && /path/to/script.sh"
 
@@ -133,5 +133,4 @@ resource "google_storage_bucket_iam_binding" "binding" {
   members = [
     "serviceAccount:${google_service_account.service_account.email}"
   ]
-}
 }
