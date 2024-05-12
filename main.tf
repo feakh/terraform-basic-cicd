@@ -121,4 +121,7 @@ resource "google_storage_bucket_iam_binding" "example_binding" {
   bucket = "dev-may11-2024-fe"
   role   = "roles/storage.objectViewer"
 
+  members = {
+    serviceAccount: google_service_account.service_account.email
+  }
 }
