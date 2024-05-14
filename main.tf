@@ -129,6 +129,36 @@ resource "google_compute_instance" "my-devops-instance" {
 # <html><body><p>Linux startup script from Cloud Storage.</p></body></html>
 # EOF
 
+#resource "google_compute_firewall" "rules" {
+#  project     = "My First Project"
+#  name        = "allowingressdevops"
+#  network     = "dev"
+#  description = "Creates firewall rule targeting all instances"
+
+#  allow {
+#    protocol  = "tcp"
+#    ports     = ["80"]
+#  }
+#
+#  source_tags = ["foo"]
+#  target_tags = ["web"]
+# }
+
+#resource "google_compute_firewall" "rules" {
+#  project     = "My First Project"
+#  name        = "devopsgcp"
+#  network     = "dev"
+#  description = "Creates firewall rule targeting all instances"
+
+#  allow {
+#    protocol  = "tcp"
+#    ports     = ["22"]
+#  }
+#
+#  source_tags = ["foo"]
+#  target_tags = ["web"]
+# }
+
 resource "google_storage_bucket_iam_binding" "binding" {
   bucket = google_storage_bucket.static.name
   role   = "roles/storage.admin"
