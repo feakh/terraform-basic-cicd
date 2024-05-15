@@ -163,6 +163,7 @@ resource "google_compute_instance" "my-devops-instance" {
 resource "google_compute_firewall" "allow_ssh" {
   name    = "devopsgcp"
   network = "dev"
+  project = var.project_id
 
   allow {
     protocol = "tcp"
@@ -175,13 +176,14 @@ resource "google_compute_firewall" "allow_ssh" {
 resource "google_compute_firewall" "allow_http" {
   name    = "allowingressdevops"
   network = "dev"
+  project = var.project_id
 
   allow {
     protocol = "tcp"
     ports    = ["80"]
   }
 
-  source_ranges = ["0.0.0.0/0"]  # Example IP ranges
+  source_ranges = ["0.0.0.0/0"] # Example IP ranges
 }
 
 
