@@ -3,6 +3,13 @@ resource "google_service_account" "service_account" {
   display_name = var.env
   project      = var.project_id
 }
+
+resource "google_service_account" "service_account2" {
+  account_id   = "fe-may15-2024-dev-sa"
+  display_name = "fe-may15-2024-dev-sad"
+  project      = var.project_id
+}
+
 # comment
 #resource "google_compute_network" "custom-test" {
 #  name                    = var.env

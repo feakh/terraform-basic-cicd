@@ -11,3 +11,7 @@ systemctl enable apache2
 
 # Start Apache
 systemctl start apache2
+
+echo "Page served from: $(hostname)" >  /var/www/html/index.html
+
+systemctl restart apache2
