@@ -89,6 +89,7 @@ resource "google_storage_bucket_object" "default" {
 # }
 
 resource "google_compute_instance" "my-devops-instance" {
+  count = 2 # create 2 similar VM instances
   project = var.project_id
   boot_disk {
     auto_delete = true
@@ -105,6 +106,7 @@ resource "google_compute_instance" "my-devops-instance" {
   machine_type = "e2-micro"
   name         = "my-devops-instance"
   zone         = "us-central1-a"
+
 
   network_interface {
     access_config {
