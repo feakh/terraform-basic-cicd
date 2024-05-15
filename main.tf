@@ -159,6 +159,33 @@ resource "google_compute_instance" "my-devops-instance" {
 #  target_tags = ["web"]
 # }
 
+
+resource "google_compute_firewall" "allow_ssh" {
+  name    = "devopsgcp"
+  network = "dev"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  source_ranges = ["35.235.240.0/20"]
+}
+
+resource "google_compute_firewall" "allow_http" {
+  name    = "allowingressdevops"
+  network = "dev"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]  # Example IP ranges
+}
+
+
+
 resource "google_storage_bucket_iam_binding" "binding" {
   bucket = google_storage_bucket.static.name
   role   = "roles/storage.admin"
