@@ -104,7 +104,7 @@ resource "google_compute_instance" "my-devops-instance" {
   }
 
   machine_type = "e2-micro"
-  name         = "my-devops-instance"
+  name         = "my-devops-instance ${count.index}"
   zone         = "us-central1-a"
 
 
