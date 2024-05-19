@@ -254,6 +254,7 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   name        = "my-unmanaged-instance-group"
   description = "An unmanaged instance group with two instances"
   project = var.project_id
+  zone         = "us-central1-a"
 
   instances = [
     "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance2-0",
