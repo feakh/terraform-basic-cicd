@@ -89,7 +89,7 @@ resource "google_storage_bucket_object" "default" {
 # }
 
 resource "google_compute_instance" "my-devops-instance" {
-  count = 2 # create 2 similar VM instances
+  count   = 2 # create 2 similar VM instances
   project = var.project_id
   boot_disk {
     auto_delete = true
@@ -246,22 +246,22 @@ resource "google_storage_bucket_iam_binding" "binding" {
 #  metadata = {
 #    startup-script-url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
 #  }
-  # metadata_startup_script_url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
+# metadata_startup_script_url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
 # }
 
 # Define the unmanaged instance group
 resource "google_compute_instance_group" "unmanaged_instance_group" {
   name        = "my-unmanaged-instance-group"
   description = "An unmanaged instance group with two instances"
-  project = var.project_id
-  zone         = var.zone
+  project     = var.project_id
+  zone        = var.zone
   #zone         = "us-central1-a"
   #instances = ["my-devops-instance-0", "my-devops-instance-1"]
   #instance_names = ["instance-1", "instance-2"]
 
   instances = [
-     google_compute_instance.my-devops-instance-0.instance.name,
-     google_compute_instance.my-devops-instance-1.instance.name,
+    google_compute_instance.my-devops-instance[0].id,
+    #  google_compute_instance.my-devops-instance-1.instance.name,
   ]
 
   #instances = [
@@ -269,3 +269,7 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   #  "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-1",
   #]
 }
+#resource "google_compute_instance" "my-devops-instance" {
+#  count = 2 # create 2 similar VM instances
+
+# type.name.attribute
