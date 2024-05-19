@@ -249,3 +249,13 @@ resource "google_compute_instance" "my-devops-instance2" {
   # metadata_startup_script_url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
 }
 
+# Define the unmanaged instance group
+resource "google_compute_instance_group" "unmanaged_instance_group" {
+  name        = "my-unmanaged-instance-group"
+  description = "An unmanaged instance group with two instances"
+
+  instances = [
+    "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance2-0",
+    "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance2-1",
+  ]
+}
