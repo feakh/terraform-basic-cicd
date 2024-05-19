@@ -256,8 +256,13 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   project = var.project_id
   zone         = var.zone
   #zone         = "us-central1-a"
-  instances = ["var.unmanaged_instance_group.my-devops-instance-0", "var.unmanaged_instance_group.my-devops-instance-1"]
+  #instances = ["my-devops-instance-0", "my-devops-instance-1"]
   #instance_names = ["instance-1", "instance-2"]
+
+  instances = [
+    "google_compute_instance.example_instances/my-devops-instance-0",
+    "google_compute_instance.example_instances/my-devops-instance-1",
+  ]
 
   #instances = [
   #  "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-0",
