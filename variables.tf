@@ -14,10 +14,17 @@ variable "region" {
   description = "name of region"
 }
 
+#variable "zone" {
+#  type        = string
+#  description = "name of zone"
+#}
+
 variable "zone" {
+  description = "The GCP zone to deploy resources to"
   type        = string
-  description = "name of zone"
+  default     = "us-central1-a"  # Default value, adjust as needed
 }
+
 
 # variable "bucket_objects" {
 #  type        = list(string)
