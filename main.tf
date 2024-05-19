@@ -208,46 +208,46 @@ resource "google_storage_bucket_iam_binding" "binding" {
 
 
 
-resource "google_compute_instance" "my-devops-instance2" {
-  count = 2 # create 2 similar VM instances
-  project = var.project_id
-  boot_disk {
-    auto_delete = true
+# resource "google_compute_instance" "my-devops-instance2" {
+#  count = 2 # create 2 similar VM instances
+#  project = var.project_id
+#  boot_disk {
+#    auto_delete = true
 
 
-    initialize_params {
-      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240508"
-      size  = 10
-      type  = "pd-balanced"
-    }
+#    initialize_params {
+#      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240508"
+#      size  = 10
+#      type  = "pd-balanced"
+#    }
 
-  }
+#  }
 
-  machine_type = "e2-micro"
-  name         = "my-devops-instance2-${count.index}"
-  zone         = "us-central1-a"
+#  machine_type = "e2-micro"
+#  name         = "my-devops-instance2-${count.index}"
+#  zone         = "us-central1-a"
 
 
-  network_interface {
-    access_config {
-      network_tier = "PREMIUM"
-    }
+#  network_interface {
+#    access_config {
+#      network_tier = "PREMIUM"
+#    }
 
-    subnetwork = "projects/striped-reserve-419818/regions/us-central1/subnetworks/subnet1"
-  }
+#    subnetwork = "projects/striped-reserve-419818/regions/us-central1/subnetworks/subnet1"
+#  }
 
-  allow_stopping_for_update = true
+#  allow_stopping_for_update = true
 
-  service_account {
-    email  = google_service_account.service_account.email #"service-account-id@striped-reserve-419818.iam.gserviceaccount.com"
-    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
-  }
+#  service_account {
+#    email  = google_service_account.service_account.email #"service-account-id@striped-reserve-419818.iam.gserviceaccount.com"
+#    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
+#  }
 
-  metadata = {
-    startup-script-url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
-  }
+#  metadata = {
+#    startup-script-url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
+#  }
   # metadata_startup_script_url = "https://storage.googleapis.com/dev-may11-2024-fe/startup_file.txt"
-}
+# }
 
 # Define the unmanaged instance group
 resource "google_compute_instance_group" "unmanaged_instance_group" {
@@ -257,7 +257,7 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   zone         = "us-central1-a"
 
   instances = [
-    "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance2-0",
-    "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance2-1",
+    "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-0",
+    "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-1",
   ]
 }
