@@ -254,7 +254,7 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   name        = "my-unmanaged-instance-group"
   description = "An unmanaged instance group with two instances"
   project = var.project_id
-  #zone         = var.zone
+  zone         = var.zone
   instances = ["var.unmanaged_instance_group.my-devops-instance-0", "var.unmanaged_instance_group.my-devops-instance-1"]
   #instance_names = ["instance-1", "instance-2"]
 
