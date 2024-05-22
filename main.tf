@@ -341,6 +341,7 @@ resource "google_compute_backend_service" "default" {
 
 resource "google_compute_http_health_check" "default" {
   name               = "health-check"
+  project = var.project_id
   request_path       = "/"
   check_interval_sec = 5
   timeout_sec        = 5
