@@ -294,7 +294,7 @@ resource "google_compute_health_check" "tcp-health-check" {
 resource "google_compute_backend_service" "default" {
   name          = "backend-service"
   health_checks = [google_compute_http_health_check.default.id]
-  endpoint_protocol              = "HTTP"
+  protocol              = "HTTP"
   enable_cdn  = false
   timeout_sec = 30
   
