@@ -298,7 +298,7 @@ resource "google_compute_backend_service" "default" {
   protocol              = "HTTP"
   enable_cdn  = false
   timeout_sec = 30
-  load_balancing_scheme = "EXTERNAL"
+  load_balancing_scheme = "EXTERNAL_managed"
   
 
 #  name                  = "tf-test-backend-service-external"
