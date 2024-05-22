@@ -289,3 +289,57 @@ resource "google_compute_health_check" "tcp-health-check" {
     port = "80"
   }
 }
+
+
+resource "google_compute_backend_service" "default" {
+  name          = "backend-service"
+  health_checks = [google_compute_http_health_check.default.id]
+  endpoint_protocol              = "HTTP"
+  enable_cdn  = false
+  timeout_sec = 30
+  
+
+#  name                  = "tf-test-backend-service-external"
+#  protocol              = "HTTP"
+#  load_balancing_scheme = "EXTERNAL"
+#  iap {
+#    oauth2_client_id     = "abc"
+#    oauth2_client_secret = "xyz"
+
+
+#  health_checks = [google_compute_http_health_check.default.id]
+#  enable_cdn  = true
+#  cdn_policy {
+#    signed_url_cache_max_age_sec = 7200
+
+#  name          = "backend-service"
+#  enable_cdn  = true
+#  cdn_policy {
+#    cache_mode = "USE_ORIGIN_HEADERS"
+#    cache_key_policy {
+#      include_host = true
+#      include_protocol = true
+#      include_query_string = true
+#      include_http_headers = ["X-My-Header-Field"]
+
+#    name          = "backend-service"
+#  enable_cdn  = true
+#  cdn_policy {
+#    cache_mode = "CACHE_ALL_STATIC"
+#    default_ttl = 3600
+#    client_ttl  = 7200
+#    max_ttl     = 10800
+#    cache_key_policy {
+#      include_host = true
+#      include_protocol = true
+#      include_query_string = true
+#      include_named_cookies = ["__next_preview_data", "__prerender_bypass"]
+
+    
+
+
+
+
+
+
+}
