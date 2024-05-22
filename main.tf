@@ -335,11 +335,12 @@ resource "google_compute_backend_service" "default" {
 #      include_query_string = true
 #      include_named_cookies = ["__next_preview_data", "__prerender_bypass"]
 
-    
 
+}
 
-
-
-
-
+resource "google_compute_http_health_check" "default" {
+  name               = "health-check"
+  request_path       = "/"
+  check_interval_sec = 5
+  timeout_sec        = 5
 }
