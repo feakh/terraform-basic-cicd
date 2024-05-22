@@ -274,3 +274,17 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
 #  count = 2 # create 2 similar VM instances
 
 # type.name.attribute
+
+
+resource "google_compute_health_check" "tcp-health-check" {
+  name = "tcp-health-check"
+
+  timeout_sec        = 5
+  check_interval_sec = 5
+  healthy_threshold   = 4
+  unhealthy_threshold = 5
+
+  tcp_health_check {
+    port = "80"
+  }
+}
