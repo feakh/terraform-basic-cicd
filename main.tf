@@ -293,6 +293,7 @@ resource "google_compute_health_check" "tcp-health-check" {
 
 resource "google_compute_backend_service" "default" {
   name          = "backend-service"
+  project = var.project_id
   health_checks = [google_compute_http_health_check.default.id]
   protocol              = "HTTP"
   enable_cdn  = false
