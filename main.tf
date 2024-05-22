@@ -277,10 +277,11 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
 
 
 resource "google_compute_health_check" "tcp-health-check" {
-  name = "tcp-health-check"
+  name    = "tcp-health-check"
+  project = var.project_id
 
-  timeout_sec        = 5
-  check_interval_sec = 5
+  timeout_sec         = 5
+  check_interval_sec  = 5
   healthy_threshold   = 4
   unhealthy_threshold = 5
 
