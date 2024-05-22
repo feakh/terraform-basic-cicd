@@ -282,8 +282,8 @@ resource "google_compute_health_check" "tcp-health-check" {
 
   timeout_sec         = 5
   check_interval_sec  = 5
-  healthy_threshold   = 4
-  unhealthy_threshold = 5
+  healthy_threshold   = 2
+  unhealthy_threshold = 2
 
   tcp_health_check {
     port = "80"
