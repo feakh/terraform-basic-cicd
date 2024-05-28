@@ -322,7 +322,7 @@ resource "google_compute_backend_service" "default" {
   check_interval_sec = 5
   timeout_sec        = 5
 }
-}
+
 
 resource "google_compute_global_network_endpoint_group" "external_proxy" {
 backend_group = google_compute_global_network_endpoint_group.external_proxy.id
