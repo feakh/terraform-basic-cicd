@@ -300,23 +300,15 @@ resource "google_compute_backend_service" "default" {
   timeout_sec = 30
   load_balancing_scheme = "EXTERNAL_MANAGED"
 
-  
-  #group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
-  capacity_Scaler = 1
-  balancing_Mode = UTILIZATION
-  max_Utilization = 0.8
-      port_Name = http
-  timeout_Sec = 30
-  locality_Lb_Policy = "ROUND_ROBIN"
- # selfLink = "projects/striped-reserve-419818/global/backendServices/backendservfe
-  ip_Address_Selection_Policy = IPV4_ONLY
- # protocol = "HTTP"
+
+ 
  # group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
 
  # backend {
  #  group = google_compute_global_network_endpoint_group.external_proxy.id
  # }
  }
+
   resource "google_compute_http_health_check" "default" {
   name               = "health-check"
   project = var.project_id
