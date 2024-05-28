@@ -310,11 +310,22 @@ resource "google_compute_backend_service" "default" {
  # protocol = "HTTP"
  # group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
 
-  backend {
-   group = google_compute_global_network_endpoint_group.external_proxy.id
-  }
+ # backend {
+ #  group = google_compute_global_network_endpoint_group.external_proxy.id
+ # }
 
-  
+  resource "google_compute_http_health_check" "default" {
+  name               = "health-check"
+  project = var.project_id
+  request_path       = "/"
+  check_interval_sec = 5
+  timeout_sec        = 5
+}
+
+resource "google_compute_global_network_endpoint_group" "external_proxy" {
+backend_group = google_compute_global_network_endpoint_group.external_proxy.id
+  }
+}
 
 #  name                  = "tf-test-backend-service-external"
 #  protocol              = "HTTP"
@@ -365,15 +376,15 @@ resource "google_compute_backend_service" "default" {
  # protocol = "HTTP"
 
 
-resource "google_compute_http_health_check" "default" {
-  name               = "health-check"
-  project = var.project_id
-  request_path       = "/"
-  check_interval_sec = 5
-  timeout_sec        = 5
-}
+#resource "google_compute_http_health_check" "default" {
+#  name               = "health-check"
+#  project = var.project_id
+#  request_path       = "/"
+#  check_interval_sec = 5
+#  timeout_sec        = 5
+#}
 
-}
+#}
 
 # backend {
  #   group = google_compute_global_network_endpoint_group.external_proxy.id
