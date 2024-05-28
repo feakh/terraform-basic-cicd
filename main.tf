@@ -299,6 +299,21 @@ resource "google_compute_backend_service" "default" {
   enable_cdn  = false
   timeout_sec = 30
   load_balancing_scheme = "EXTERNAL_MANAGED"
+  capacity_Scaler = 1
+  balancing_Mode = UTILIZATION
+  max_Utilization = 0.8
+      port_Name = http
+  timeout_Sec = 30
+  locality_Lb_Policy = "ROUND_ROBIN"
+ # selfLink = "projects/striped-reserve-419818/global/backendServices/backendservfe
+  ipAddress_Selection_Policy = IPV4_ONLY
+ # protocol = "HTTP"
+ # group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
+
+  backend {
+   group = google_compute_global_network_endpoint_group.external_proxy.id
+  }
+
   
 
 #  name                  = "tf-test-backend-service-external"
@@ -337,17 +352,17 @@ resource "google_compute_backend_service" "default" {
 #      include_query_string = true
 #      include_named_cookies = ["__next_preview_data", "__prerender_bypass"]
 
-    name          = "backend-service"
-    capacity_Scaler = 1
+    
+ #   capacity_Scaler = 1
       group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
-      balancing_Mode = UTILIZATION
-      max_Utilization = 0.8
-      port_Name = http
-  timeout_Sec = 30
-  locality_Lb_Policy = "ROUND_ROBIN",
-  selfLink = "projects/striped-reserve-419818/global/backendServices/backendservfe
-  ipAddress_Selection_Policy = IPV4_ONLY
-  protocol = HTTP
+ #     balancing_Mode = UTILIZATION
+ #     max_Utilization = 0.8
+ #     port_Name = http
+ # timeout_Sec = 30
+ # locality_Lb_Policy = "ROUND_ROBIN"
+ # selfLink = "projects/striped-reserve-419818/global/backendServices/backendservfe
+ # ipAddress_Selection_Policy = IPV4_ONLY
+ # protocol = "HTTP"
 
 
 resource "google_compute_http_health_check" "default" {
@@ -358,6 +373,11 @@ resource "google_compute_http_health_check" "default" {
   timeout_sec        = 5
 }
 
+}
+
+# backend {
+ #   group = google_compute_global_network_endpoint_group.external_proxy.id
+ # }
 
 #"description": "",
 #  "sessionAffinity": "NONE",
