@@ -313,7 +313,7 @@ resource "google_compute_backend_service" "default" {
  # }
 
   backend {
-    group = "${google_compute_instance_group.unmanaged_instance_group.instance.name}"
+    group = "google_compute_instance_group.unmanaged_instance_group.instance.name"
   }
 
   instances = ["my-devops-instance-0", "my-devops-instance-1"]
