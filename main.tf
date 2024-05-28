@@ -316,7 +316,7 @@ resource "google_compute_backend_service" "default" {
     group = "google_compute_instance_group.unmanaged_instance_group.instance.name"
   }
 
-  instances = ["my-devops-instance-0", "my-devops-instance-1"]
+  #instances = ["my-devops-instance-0", "my-devops-instance-1"]
 
   #instances = [
   #  google_compute_instance.my-devops-instance[0].self_link,
