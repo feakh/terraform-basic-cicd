@@ -299,6 +299,7 @@ resource "google_compute_backend_service" "default" {
   enable_cdn  = false
   timeout_sec = 30
   load_balancing_scheme = "EXTERNAL_MANAGED"
+  group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
   capacity_Scaler = 1
   balancing_Mode = UTILIZATION
   max_Utilization = 0.8
@@ -365,7 +366,7 @@ backend_group = google_compute_global_network_endpoint_group.external_proxy.id
 
     
  #   capacity_Scaler = 1
-      group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
+ #     group = "projects/striped-reserve-419818/zones/us-central1-a/instanceGroups/instance-group-1"
  #     balancing_Mode = UTILIZATION
  #     max_Utilization = 0.8
  #     port_Name = http
