@@ -327,7 +327,7 @@ resource "google_compute_backend_service" "default" {
 resource "google_compute_global_network_endpoint_group" "external_proxy" {
 backend_group = google_compute_global_network_endpoint_group.external_proxy.id
   }
-}
+
 
 #  name                  = "tf-test-backend-service-external"
 #  protocol              = "HTTP"
