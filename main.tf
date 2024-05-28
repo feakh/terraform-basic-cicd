@@ -307,7 +307,24 @@ resource "google_compute_backend_service" "default" {
  # backend {
  #  group = google_compute_global_network_endpoint_group.external_proxy.id
  # }
+
+ #backend {
+ #   group = "${google_compute_instance_group.my_instance_group.instance.name}"
+ # }
+
+  backend {
+    group = "${google_compute_instance_group.unmanaged_instance_group.instance.name}"
+  }
+
+  instances = ["my-devops-instance-0", "my-devops-instance-1"]
+
+  #instances = [
+  #  google_compute_instance.my-devops-instance[0].self_link,
+  #  google_compute_instance.my-devops-instance[1].self_link
+    #  google_compute_instance.my-devops-instance-1.instance.name,
  }
+
+ #resource "google_compute_instance_group" "unmanaged_instance_group" {
 
   resource "google_compute_http_health_check" "default" {
   name               = "health-check"
