@@ -283,6 +283,7 @@ resource "google_compute_global_address" "default" {
   port_range            = "80-80"
   target                = google_compute_target_http_proxy.default.id
   ip_address            = google_compute_global_address.default.id
+  project     = var.project_id
 }
 
 resource "google_compute_target_http_proxy" "default" {
