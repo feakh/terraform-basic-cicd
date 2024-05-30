@@ -294,7 +294,7 @@ resource "google_compute_health_check" "tcp-health-check" {
 resource "google_compute_backend_service" "default" {
   name          = "backend-service"
   project = var.project_id
-  #health_checks = [google_compute_http_health_check.default.id]
+  health_checks = [google_compute_health_check.tcp-health-check.id]
   protocol              = "HTTP"
   enable_cdn  = false
   timeout_sec = 30
@@ -327,13 +327,6 @@ resource "google_compute_backend_service" "default" {
 
  #resource "google_compute_instance_group" "unmanaged_instance_group" {
 
-  resource "google_compute_http_health_check" "default" {
-  name               = "health-check"
-  project = var.project_id
-  request_path       = "/"
-  check_interval_sec = 5
-  timeout_sec        = 5
-}
 
 
 #resource "google_compute_global_network_endpoint_group" "external_proxy" {
