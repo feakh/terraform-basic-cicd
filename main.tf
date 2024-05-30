@@ -294,7 +294,7 @@ resource "google_compute_url_map" "default" {
   #  "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-0",
   #  "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-1",
   #]
-}
+
 #resource "google_compute_instance" "my-devops-instance" {
 #  count = 2 # create 2 similar VM instances
 
