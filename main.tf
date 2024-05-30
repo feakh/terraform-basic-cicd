@@ -267,6 +267,7 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
     google_compute_instance.my-devops-instance[1].self_link
     #  google_compute_instance.my-devops-instance-1.instance.name,
   ]
+}
 
   resource "google_compute_global_forwarding_rule" "default" {
   name                  = "http-content-rule"
