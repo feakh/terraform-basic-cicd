@@ -268,6 +268,27 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
     #  google_compute_instance.my-devops-instance-1.instance.name,
   ]
 
+  resource "google_compute_global_forwarding_rule" "default" {
+  name                  = "http-content-rule"
+  ip_protocol           = "TCP"
+  load_balancing_scheme = "EXTERNAL_MANAGED"
+  port_range            = "80-80"
+  target                = google_compute_target_http_proxy.default.id
+  ip_address            = google_compute_global_address.default.id
+}
+
+resource "google_compute_target_http_proxy" "default" {
+  name    = "http-lb-proxy"
+  url_map = google_compute_url_map.default.id
+}
+
+resource "google_compute_url_map" "default" {
+  name            = "web-map-http"
+  default_service = google_compute_backend_service.default.id
+}
+
+
+
   #instances = [
   #  "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-0",
   #  "projects/striped-reserve-419818/zones/us-central1-a/instances/my-devops-instance-1",
