@@ -260,7 +260,6 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   #instance_names = ["instance-1", "instance-2"]
 
   instances = [
-    google_compute_instance.my-devops-instance[0].self_link,
     google_compute_instance.my-devops-instance[1].self_link
     #  google_compute_instance.my-devops-instance-1.instance.name,
   ]
