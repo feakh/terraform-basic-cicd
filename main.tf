@@ -269,6 +269,12 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   ]
 }
 
+
+# reserved IP address
+resource "google_compute_global_address" "default" {
+  name = "http-proxy-lb-ip"
+}
+
   resource "google_compute_global_forwarding_rule" "default" {
   name                  = "http-content-rule"
   ip_protocol           = "TCP"
