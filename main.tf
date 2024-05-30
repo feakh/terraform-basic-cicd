@@ -255,7 +255,10 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
   description = "An unmanaged instance group with two instances"
   project     = var.project_id
   zone        = var.zone
-  named_port = http_80
+  named_port {
+    name = "http"
+    port = "80"
+  }
   #zone         = "us-central1-a"
   #instances = ["my-devops-instance-0", "my-devops-instance-1"]
   #instance_names = ["instance-1", "instance-2"]
