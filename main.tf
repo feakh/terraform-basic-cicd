@@ -273,6 +273,7 @@ resource "google_compute_instance_group" "unmanaged_instance_group" {
 # reserved IP address
 resource "google_compute_global_address" "default" {
   name = "http-proxy-lb-ip"
+  project     = var.project_id
 }
 
   resource "google_compute_global_forwarding_rule" "default" {
@@ -292,6 +293,7 @@ resource "google_compute_target_http_proxy" "default" {
 resource "google_compute_url_map" "default" {
   name            = "web-map-http"
   default_service = google_compute_backend_service.default.id
+  project     = var.project_id
 }
 
 
